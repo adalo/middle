@@ -1,0 +1,24 @@
+<h1> Localities</h1>
+
+<table id = "localities">
+	<tr>
+		<th>Name</th>
+		<th>Population</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
+	</tr>
+<% @localities.each do |locality| %>
+	<tr>
+		<td><%= locality.name %></td>
+		<td><%= locality.population %></td>
+		<td><%= locality.latitude %></td>
+		<td><%= locality.longitude %></td>
+	</tr>
+<% end %>
+
+<h2>Import Localities</h2>
+
+<%= form_tag import_localities_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
