@@ -10,6 +10,7 @@ feature "Importing localities" do
 		expect(page).to have_css("tr", :count => 4)
 		expect(page).to have_css("td", :text => "326")
 		expect(page).to have_css("td", :text => "45.140556")
+		# OPTIMIZE currently hitting the geocoder API every time a locality is created in a test. Consider stubbing out test results to minimize these calls.
 	end
 
 	scenario "User imports an invalid csv file" do
@@ -20,9 +21,5 @@ feature "Importing localities" do
 		expect(page).to have_css("div.alert-error")
 	end
 
-
-
-
-	
-
+	# TODO there's an opportunity above to refactor an import_csv helper
 end
