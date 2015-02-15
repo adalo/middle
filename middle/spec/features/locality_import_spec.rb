@@ -9,6 +9,7 @@ feature "Importing localities" do
 		click_on "Import"
 		expect(page).to have_css("tr", :count => 4)
 		expect(page).to have_css("td", :text => "326")
+		expect(page).to have_css("td", :text => "45.140556")
 	end
 
 	scenario "User imports an invalid csv file" do
